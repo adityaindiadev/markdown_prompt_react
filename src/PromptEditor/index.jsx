@@ -103,7 +103,6 @@ export default function PromptEditor() {
                 "Storage failed (likely quota). Your latest changes may not persist. Consider copying your text out, clearing some space, or reducing version count."
             );
         });
-    } 
     }, [doc]);
 
 
