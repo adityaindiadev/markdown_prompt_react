@@ -72,12 +72,19 @@ export default function PromptEditor() {
 
     const didMount = useRef(false);
 
-    const [doc, setDoc] = useState({
-        id: DOC_ID,
-        content: "",
-        versions: [],
-        updatedAt: nowISO(),
-    });
+   const [doc, setDoc] = useState(
+        (() => {
+
+            // Load from storage on mount
+            const loaded = safeLoad();
+            return loaded ? loaded : {
+                id: DOC_ID,
+                content: "",
+                versions: [],
+                updatedAt: nowISO(),
+            }
+        })
+    );
     const [selectedVersionId, setSelectedVersionId] = useState(null);
     const [renameId, setRenameId] = useState(null);
     const [renameDraft, setRenameDraft] = useState("");
@@ -98,11 +105,16 @@ export default function PromptEditor() {
 
 
     useEffect(() => {
-        safeSave(doc, (e) => {
-            setError(
-                "Storage failed (likely quota). Your latest changes may not persist. Consider copying your text out, clearing some space, or reducing version count."
-            );
-        });
+        if (didMount.current) {
+            // Only save AFTER the initial mount
+            safeSave(doc, (e) => {
+                setError(
+                    "Storage failed (likely quota). Your latest changes may not persist. Consider copying your text out, clearing some space, or reducing version count."
+                );
+            });
+        } else {
+            didMount.current = true;
+        }
     }, [doc]);
 
 
