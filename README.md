@@ -8,6 +8,14 @@
 - Cap 20 versions (evict oldest)
 - Save snapshot using **Ctrl/Cmd+S**
 
+---
+
+### 🎥 YouTube Video
+
+https://markdown-prompt.netlify.app/
+
+---
+
 ## Getting Started
 
 ### 1. Clone and install
