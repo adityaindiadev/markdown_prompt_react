@@ -10,9 +10,9 @@
 
 ---
 
-### 🎥 YouTube Video
+### 🎥 Live Link
 
-https://markdown-prompt.netlify.app/
+[https://markdown-prompt.netlify.app/](https://markdown-prompt.netlify.app/).
 
 ---
 
