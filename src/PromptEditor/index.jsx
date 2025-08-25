@@ -121,7 +121,7 @@ export default function PromptEditor() {
             {dirty && <Badge>Unsaved changes</Badge>}
           </div>
           <div className="flex items-center gap-2">
-            <IconButton title="Save Version (Ctrl/Cmd+S)" onClick={onSaveVersion}>
+            <IconButton title="Save Version (Ctrl/Cmd+S)" onClick={onSaveVersion} testid={"saveBtn"}>
               <span className="i-mdi-content-save" aria-hidden />💾
               <span>Save Version</span>
               <kbd className="ml-1 rounded border px-1 text-xs">Ctrl/Cmd+S</kbd>
